@@ -23,39 +23,36 @@ func dictionaryAttack() -> String {
     var passwordGuess = ""
 
     // Go through dictionary and assign the word to passwordGuess
+    for word in dictionary {
+        passwordGuess = word
+        
+        let guessAsData = encrypt(passwordGuess)
+        
+        // SHA-256
+        let sha256Hash = SHA256.hash(data: guessAsData)
+        
+        // SHA-512
+        let sha512Hash = SHA512.hash(data: guessAsData)
 
-    // passwordGuess = dictionaryWordThingyHere
-    let guessAsData = encrypt(passwordGuess)
-    
-    // SHA-256
-    let sha256Hash = SHA256.hash(data: guessAsData)
+        // MD5
+        let md5Hash = MD5.hash(data: guessAsData)
 
-    
-    // SHA-512
-    let sha512Hash = SHA512.hash(data: guessAsData)
+        // Blowfish
+        let blowfishHash = Blowfish.hash(data: guessAsData)
 
-
-    // MD5
-    let md5Hash = MD5.hash(data: guessAsData)
-
-
-    // Blowfish
-    let blowfishHash = Blowfish.hash(data: guessAsData)
-
-    
-
-    // Switch to see if any hashes of are equal to the desired hash
-    switch desiredHash {
-    case sha256Hash:
-        break
-    case sha512Hash:
-        break
-    case md5Hash:
-        break
-    case blowfishHash:
-        break
-    default:
-        print("\(passwordGuess) is not the password")
+        // Switch to see if any hashes of are equal to the desired hash
+        switch desiredHash {
+        case sha256Hash:
+            break
+        case sha512Hash:
+            break
+        case md5Hash:
+            break
+        case blowfishHash:
+            break
+        default:
+            print("\(passwordGuess) is not the password")
+        }
     }
     
 }
