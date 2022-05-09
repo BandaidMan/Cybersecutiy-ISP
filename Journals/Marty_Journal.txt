@@ -34,4 +34,19 @@
 	2: The other directory contains words for a dictionary brute force attack
 	3: Finally, there is a URL, potentially the source of the downloaded dictionary.
 
+--Dateline 3 Apr 2022--
+	1: passwd file is readable, hash can be seen
+	2: Write a script to use the dictionary file to generate hashes for each entry and check it
+	3: Only possible has is MD5 B/C hash length in password file
+	4: Writing in C++ because it will execute faster
+--Dateline 20 Apr 2022--
+1: The plan to use the su command to mimic logging in a mr kocher without alterting hm.
 
+--Dateline 26 Apr 2022--
+1: File is inaccessible as it only can be read by the user. That combined with the fact it is impossible to log in as mr kocher makes the only possible way to read the file be via exploiting some vulnerability in ubuntu. Something beyond my and aidan's skillset
+
+UPDATE
+
+2: The file is suddenly accessible, by looking at the file I ca determine it to contain exif data
+
+3: After examining the text file in a HexD I see that it contains a similar header to a PNG file, after changing some data I can determine the file is going to Jordan.
